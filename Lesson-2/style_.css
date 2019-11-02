@@ -1,0 +1,22 @@
+:root {
+    --wrapper-width: 100px;
+    --main-blue: blue;
+    --main-red: red;
+    --main-difference: 30px;
+}
+  
+.wrapper {
+    width: var(--wrapper-width);
+    height: var(--wrapper-width);
+    background-color: var(--main-blue);
+    display: flex;
+    justify-content: center; /*Центрирование по горизонтали*/
+    align-items: center;     /*Центрирование по вертикали */
+  }
+  
+.wrapper__inner {
+    width: calc(var(--wrapper-width) - var(--main-difference));
+    height: calc(var(--wrapper-width) - var(--main-difference));
+    background-color: var(--main-red);
+
+  }
