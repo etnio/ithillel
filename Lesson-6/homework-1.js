@@ -4,3 +4,10 @@
 // 3.1 (Усложняем) Кроме кратного запросить количество числе, которые следует вывести
 // Все задания написать с помощью while и for циклов
 
+var amount = 5,
+    count = 0;
+
+do {
+    console.log('I want to live');
+    count++;
+} while (count < amount);
