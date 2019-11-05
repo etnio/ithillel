@@ -4,7 +4,7 @@
 var numMax = 100,
     numMin = 1;
 
-multi = prompt ('Type number ');
+multi = prompt ('Type a number');
 
 for (i = numMin; i<=numMax; i++ ){
     if (i%+multi===0){

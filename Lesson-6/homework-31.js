@@ -4,8 +4,8 @@
 var numMax = 100,
     numMin = 1;
 
-multi = prompt ('Type number ');
-count = prompt ('Type count of numbers to show');
+multi = prompt ('Type a number ');
+count = prompt ('Type a count of numbers to show');
 
 for (i = numMin; i <= numMax; i++ ){
     if (i%+multi === 0 && +count !==0){
