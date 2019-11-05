@@ -9,5 +9,5 @@ var amount = 5,
 
 do {
     console.log('I want to live');
-    count++;
-} while (count < amount);
+    //count++;
+} while (++count < amount); // 5
