@@ -6,4 +6,10 @@ var card = {
     position : 0
 };
 
-console.log(card);
+card.additionalProp = 'new properties';
+
+const cardList = [];
+cardList[cardList.length] = card;
+
+console.log(card.name, cardList);
+console.log(card['name'], cardList);
