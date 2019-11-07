@@ -6,6 +6,16 @@ var card = {
     position : 0
 };
 
-for (var key in card) {
+var customObj = Object.create(Object.prototype, {
+    closed : {
+        writeble : false,
+        confugurable : false,
+        enumarable : false,
+        value : 'private data'
+    }
+});
+console.log(customObj);
+
+for (var key in customObj) {
     console.log(key, card[key]);
 }
