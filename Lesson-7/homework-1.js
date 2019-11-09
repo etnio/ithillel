@@ -2,78 +2,50 @@
 // Задача:
 
 // Спросить у пользователя какое количество рандомных значений нужно создать и какое минимальное и максимальное количество символов в них должно быть.
-// Заполнить массив рандомными строками в количестве, указанном пользователем, состоящими из значений соответствующей длины
-// Сообщить пользователю какое количество слов какой длины было добавлено. К примеру: 5 words with 10 characters, 7 words with 3 characters etc.
-// Сгруппировать слова в объект по количеству значений в строке: { 1: [‘a’, ‘b’, ‘c’, ‘d’], 2: [‘ab’, ‘cd’, ‘ef’, ‘gh’] }
+// 1. Заполнить массив рандомными строками в количестве, указанном пользователем, состоящими из значений соответствующей длины
+// 2. Сообщить пользователю какое количество слов какой длины было добавлено. К примеру: 5 words with 10 characters, 7 words with 3 characters etc.
+// 3. Сгруппировать слова в объект по количеству значений в строке: { 1: [‘a’, ‘b’, ‘c’, ‘d’], 2: [‘ab’, ‘cd’, ‘ef’, ‘gh’] }
 
-//var count = prompt('How many words create?');
-//var min = prompt('Minimum symbols in a word?');
-//var max = prompt('Maximum symbols in a word?');
+var wordsAmount = prompt('How many words create?');
+var min = prompt('Minimum symbols in a word?');
+var max = prompt('Maximum symbols in a word?');
 
-var count = '50'; //var count = prompt('How many words create?');
-var min = '3'; //var min = prompt('Minimum characters in a word?');
-var max = '10'; //var max = prompt('Maximum characters in a word?');
+var wordsAmount = +wordsAmount;
+var min = +min; 
+var max = +max;  
 
 var alphabet = 'abcdefghijklmnopqrstuvwxyz';
-var arr = [];
-var arrWord = [];
 
+var array = [];
+var obj = {};
 
-
-
-    numChar = Math.round(Math.random() * (+max - +min) + +min);
-    for (i = 0; i < numChar; i++) {
-        arrWord[i] = alphabet[Math.ceil(Math.random() * (alphabet.length - 1))];    
-    }
-    arrWord = arrWord.join('');    
-
-
-
-
-for (i = 0; i < +count; i++) {
-    numChar = Math.round(Math.random() * (+max - +min) + +min);
-    arr.push(arrWord);
+function getRandom(min, max) {
+    return Math.round(Math.random() * (max - min) + min);
 }
 
-console.log(arr);
+for (i = 0; i < wordsAmount; i++) {
 
-//-- Random word generator
-// numChar = Math.round(Math.random() * (+max - +min) + +min);
-// for (i = 0; i < numChar; i++) {
-//     arrWord[i] = alphabet[Math.ceil(Math.random() * (alphabet.length - 1))]; 
-// }
-// arrWord = arrWord.join(''); 
-//--
+    var characters = getRandom(min, max);
+    var word = [];
+    for (n = 0; n < characters; n++) {
+        var symbol = alphabet[getRandom(0, alphabet.length - 1)]; 
+        word.push(symbol);    
+    }
+    word = word.join(''); 
+    array.push(word);
 
+    if (obj[characters]) {
+        obj[characters].push(word);
+    } else {obj[characters] = [word] }
 
-//obj[numChar] = arrWord;
+   
+}
 
-// -- Object 
-// var obj = {};
-// var range = +max - +min;
+console.log(array); // 1
 
-// for (i = 0; range >= 0 ; i++ ) {
-//     obj[min] = arrWord;
-//     min++;
-//     range--;
-// }
-// console.log(obj);
-//---
+for(var characters in obj) { // 2
+	console.log(obj[characters].length + ' words with ' + characters + ' characters');
+}
 
+console.log(obj); // 3
 
-
-// for (i = 0; i < +count; i++) {
-//     numChar = Math.round(Math.random() * (+max - +min) + +min);
-//     l = alphabet[Math.ceil(Math.random() * (alphabet.length - 1))];
-//     arrWord = [];
-//     //arrWord.length = numChar;
-//     arrWord = arrWord.join('');
-//     arr.push(arrWord);
-// }
-
-// for (var parameter in sss) {
-//     obj[]
-// }
-
-// console.log(arr);
-// console.log(obj);

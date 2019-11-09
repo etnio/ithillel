@@ -1,8 +1,30 @@
-// Подготовить строку из всех возможных букв английского алфавита.
-// Задача:
+// Functions
 
-// Спросить у пользователя какое количество рандомных значений нужно создать и какое минимальное и максимальное количество символов в них должно быть.
-// Заполнить массив рандомными строками в количестве, указанном пользователем, состоящими из значений соответствующей длины
-// Сообщить пользователю какое количество слов какой длины было добавлено. К примеру: 5 words with 10 characters, 7 words with 3 characters etc.
-// Сгруппировать слова в объект по количеству значений в строке: { 1: [‘a’, ‘b’, ‘c’, ‘d’], 2: [‘ab’, ‘cd’, ‘ef’, ‘gh’] }
+function roarWithArgument(argument) {
+    console.log('Roar', argument);
+}
 
+roarWithArgument('Hello World!');
+
+function random(min, max) {
+    return Math.round(Math.random() * (+max - +min) + +min);
+}
+
+
+function play(num, maxAttempts) {
+    
+    var result,
+        attempts = 0;
+
+    do {
+        var guess = prompt('Guess a number:');
+        result = Number(guess) !== num;
+    } while (result && guess !== null && attempts < maxAttempts);
+
+    return !result;
+}
+
+var num = random(0, 10);
+var result = play(num, 2);
+
+console.log(result);
