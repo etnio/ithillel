@@ -22,23 +22,31 @@ var circle = {
                 break;
         }
         this.el.style.transform = transform;
-    }
+    },
+    left: function(distance) {
+        this.move('left', distance);
+    },
+    right: function(distance) {
+        this.move('right', distance);
+    },
+    up: function(distance) {
+        this.move('up', distance);
+    },
+    down: function(distance) {
+        this.move('down', distance);
+    },
 }
 
 
-
-
-
-
 setTimeout(function () {
-    circle.move('right', 310);
-    circle.move('up', 100);
-    circle.move('right', 200);
+    circle.right(310);
+    circle.up(100);
+    circle.right(200);
 
     setTimeout(function () {
-        circle.move('left', 100);
-        circle.move('up', 200);
-        circle.move('left', 100);
+        circle.left(100);
+        circle.up(200);
+        circle.left(100);
 
     }, 500)
 
