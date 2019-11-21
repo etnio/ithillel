@@ -1,29 +1,44 @@
 //console.log('Новы JS урок');
 //State
 
-var circle = document.querySelector('.circle');
-var currentDistance = 0;
-
-function move(direction, distance) {
-    var transform;
-    switch (direction) {
-        case 'right':
-            transform = 'translate(' + (currentDistance += distance) + 'px, 0)';
-            break;
-        case 'left':
-            transform = 'translate(' + (currentDistance -= distance) + 'px, 0)';
-            break;
+var circle = {
+    el: document.querySelector('.circle'),
+    x: 0,
+    y: 0,
+    move: function (direction, distance) {
+        var transform;
+        switch (direction) {
+            case 'right':
+                transform = 'translate(' + (this.x += distance) + 'px, ' + (this.y) +  'px)';
+                break;
+            case 'left':
+                transform = 'translate(' + (this.x -= distance) + 'px, ' + (this.y) +  'px)';
+                break;
+            case 'up':
+                transform = 'translate(' + (this.x) + 'px, ' + (this.y -= distance) + 'px)';
+                break;
+            case 'down':
+                transform = 'translate(' + (this.x) + 'px, ' + (this.y += distance) + 'px)';
+                break;
+        }
+        this.el.style.transform = transform;
     }
-    circle.style.transform = transform;
 }
 
 
+
+
+
+
 setTimeout(function () {
-    move('right', 310);
-    move('right', 200);
+    circle.move('right', 310);
+    circle.move('up', 100);
+    circle.move('right', 200);
 
     setTimeout(function () {
-        move('left', 100);
+        circle.move('left', 100);
+        circle.move('up', 200);
+        circle.move('left', 100);
 
     }, 500)
 
