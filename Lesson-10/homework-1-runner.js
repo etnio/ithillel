@@ -12,8 +12,8 @@ var runner = {
     start: function (speed) {
         var _this = this;
         this.$$runnerId = setTimeout(function callback() {
-            _this.$$tasks.forEach(function (task) {
-                console.log(task)
+            _this.$$tasks.forEach(function (mytask) {
+                mytask();
             })
             _this.$$runnerId = setTimeout(callback, speed);
         }, speed);
@@ -24,5 +24,5 @@ var runner = {
 }
 
 runner.setSpeed(2000);
-runner.add('Hello');
-runner.add('World');
+runner.add(function () { console.log('Hello World') });  //mytask
+
