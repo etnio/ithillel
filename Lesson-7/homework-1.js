@@ -11,8 +11,8 @@ var min = prompt('Minimum symbols in a word?');
 var max = prompt('Maximum symbols in a word?');
 
 var wordsAmount = +wordsAmount;
-var min = +min; 
-var max = +max;  
+var min = +min;
+var max = +max;
 
 var alphabet = 'abcdefghijklmnopqrstuvwxyz';
 
@@ -28,23 +28,19 @@ for (i = 0; i < wordsAmount; i++) {
     var characters = getRandom(min, max);
     var word = [];
     for (n = 0; n < characters; n++) {
-        var symbol = alphabet[getRandom(0, alphabet.length - 1)]; 
-        word.push(symbol);    
+        var symbol = alphabet[getRandom(0, alphabet.length - 1)];
+        word.push(symbol);
     }
-    word = word.join(''); 
-    array.push(word);
-
+    array.push(word.join(''));
     if (obj[characters]) {
         obj[characters].push(word);
-    } else {obj[characters] = [word] }
-
-   
+    } else { obj[characters] = [word] }
 }
 
 console.log(array); // 1
 
-for(var characters in obj) { // 2
-	console.log(obj[characters].length + ' words with ' + characters + ' characters');
+for (var characters in obj) { // 2
+    console.log(obj[characters].length + ' words with ' + characters + ' characters');
 }
 
 console.log(obj); // 3
