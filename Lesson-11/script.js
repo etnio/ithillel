@@ -40,7 +40,7 @@ users.forEach(function(u, i) {
 })
 
 function map(arr, cb) {
-    if (!cb) return arr,slice();
+    if (!cb) return arr.slice();
     var newArr = [];
     for (var i = 0; i < arr.length; i++) {
         cb(arr[i], i, arr)
