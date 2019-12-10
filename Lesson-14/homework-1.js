@@ -41,48 +41,38 @@ var solder = new MilitaryResource('solder', 30, 500);
 console.log(solder.restore());
 console.log(solder);
 
+
+//------ It doesn't work ---------------------
+
 function Squad(defaultResources) {
    this.squad = [];
    if (defaultResources) this.combineResources(defaultResources);
 }
 
-// function Squad(unitOne, unitNext) {
-//    return Array.prototype.reduce
-//       .apply(arguments, function (unitOne, unitNext) {
-//          return unitOne + unitNext;
-//       }, 0)
-// }
-
-Squad.prototype.combineResources = function (defaultResources) {
+Squad.prototype.combineResources = function (resorce) {
    var ArrUnits = [];
    for (i = 0; i < arguments.length; i++) {
-       ArrUnits.push(defaultResources[i]);    
+      ArrUnits.push(resorce[i]);
    }
    return this.squad = ArrUnits;
 };
 
-// Squad.prototype.combineResources = function () {
-//    return Array.prototype.reduce
-//       .apply(arguments, function (acc, next) {
-//          return acc + next;
-//       }, 0)
-// };
+var resourceSquad = new Squad(solder, solder, archer);
+console.log(Squad(resourceSquad));
 
+//-------------------------------------------
 
-
-var resourceSquad = new Squad(solder, solder, solder, archer, rocketeer);
-console.log(Squad(solder, solder, solder, archer, rocketeer));
 
 
 Squad.prototype.isReadyToMove = function () {
-   return this.squad.every(function (unit) {
-      return unit.isReadyToMove();
+   return this.squad.every(function (resorce) {
+      return resorce.isReadyToMove();
    })
 };
 
 Squad.prototype.isReadyToFight = function () {
-   return this.squad.some(function (unit) {
-      return unit.isReadyToFight();
+   return this.squad.some(function (resorce) {
+      return resorce.isReadyToFight();
    })
 };
 
