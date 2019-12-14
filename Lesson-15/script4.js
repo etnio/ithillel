@@ -22,4 +22,4 @@ var obj = {
 }
 var numbers = [2, 3]
 
-concole.log(func.call(obj, 2, 3));
+console.log(func.call(obj, 2, 3));
